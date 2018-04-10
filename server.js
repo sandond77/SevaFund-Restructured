@@ -25,6 +25,12 @@ mongoose.connect(MONGODB_URI);
 console.log("mongoose status code representations: 0 = disconnected/1 = connected/ 2 = connecting/ 3 = disconnecting. ")
 console.log("mongoose connection status: Current status is: ", mongoose.connection.readyState);
 
+db.Charity.find({}).
+	then(results => {
+		console.log("logging db search results")
+		console.log(results)
+	})
+
 app.use('/charities', router)
 
 app.listen(PORT, function() {
