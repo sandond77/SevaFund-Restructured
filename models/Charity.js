@@ -12,6 +12,12 @@ const CharitySchema = new Schema({
 	PurchaseOrder:{
 		type: Number,
 		unique: true //we want the POs to be unique for each charity
+		// validate: {
+		// 	validator: (input) => { //to check if the PO being entered is 10 digits long with numerical values
+		// 		var reg =  /\d{10}/
+		// 		return reg.test(input);
+		// 	}, 
+		// 	message: '{Value} is not a valid PO. Use 10 numerical digits only' 
 	},
 	EthereumAddress:{
 		type: Number //what needs to be here?
