@@ -4,6 +4,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require('mongoose');
 const db = require('./models');
+const cors = require('cors');
 // const axios = require('axios')
 const bodyParser = require('body-parser');
 const router = require('./routes/router')
@@ -21,16 +22,7 @@ app.get("*", function(req, res) {
 
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
-
-app.use(function(req, res, next) {
- res.setHeader('Access-Control-Allow-Origin', '*');
- res.setHeader('Access-Control-Allow-Credentials', 'true');
- res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
- res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
-//and remove cacheing so we get the most recent comments
- res.setHeader('Cache-Control', 'no-cache');
- next();
-});
+app.use(cors());
 
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/SevaFund";
 mongoose.Promise = Promise;

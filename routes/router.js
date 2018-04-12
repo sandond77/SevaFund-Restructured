@@ -18,3 +18,5 @@ router.get('/charities', (req, res) => {
 });
 
 module.exports = router;
+
+//https://appdividend.com/2017/06/28/mern-stack-tutorial/

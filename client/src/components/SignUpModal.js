@@ -34,7 +34,7 @@ class SignUpModal extends React.Component {
         console.log(login);
         this.loginForm.reset();
 
-        axios.get('http://localhost:3000/charities')
+        axios.get('http://localhost:3001/charities')
             .then(function(response){
                 console.log(response)
             })
