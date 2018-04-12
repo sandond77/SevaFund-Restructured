@@ -4,6 +4,8 @@ import Dialog, {
     DialogContent,
     DialogTitle,
 } from 'material-ui/Dialog';
+import axios from 'axios';
+
 
 class SignUpModal extends React.Component {
     state = {
@@ -31,6 +33,14 @@ class SignUpModal extends React.Component {
         }
         console.log(login);
         this.loginForm.reset();
+
+        axios.get('http://localhost:3000/charities')
+            .then(function(response){
+                console.log(response)
+            })
+            .catch(function(error){
+                console.log(error)
+            })
     }
     
     render() {
