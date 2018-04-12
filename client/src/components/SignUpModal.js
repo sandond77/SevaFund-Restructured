@@ -33,8 +33,13 @@ class SignUpModal extends React.Component {
         }
         console.log(login);
         this.loginForm.reset();
-
-        axios.get('http://localhost:3001/charities')
+        
+        //URLS tried:
+        //  http://localhost:3000/charities
+        //  http://localhost:3001/charities
+        //  /charities
+        //  https://radiant-plains-22268.herokuapp.com/api (i have JSON data stored here and i wanted to see the response)
+        axios.get('/charities')
             .then(function(response){
                 console.log(response)
             })

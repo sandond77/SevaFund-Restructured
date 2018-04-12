@@ -33,20 +33,23 @@ console.log("mongoose connection status: Current status is: ", mongoose.connecti
 
 db.Charity.create({
 	Name: "Test Charity"
-}).
-	then(results => {
+	})
+	.then(results => {
 		console.log("creating db entry")
-		console.log(results)
 	})
 
-db.Charity.find({}).
-	then(results => {
+db.Charity.find({})
+	.then(results => {
 		console.log("logging db search results")
 		console.log(results)
 	})
 
 app.use(router)
-
+router.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "http://localhost:3333");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+}); 
 
 app.listen(PORT, function() {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
