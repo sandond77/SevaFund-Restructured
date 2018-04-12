@@ -9,11 +9,11 @@ router.get('/', (req, res) => {
 
 router.get('/charities', (req, res) => {
 	res.send("get request received")
-	// db.Charity.find({}).
-	// 	then(results => {
-	// 		// console.log(" get response sent")
-	// 		res.json(results);
-	// 	})
+	db.Charity.find({}).
+		then(results => {
+			// console.log(" get response sent")
+			res.json(results);
+		})
 
 });
 
