@@ -39,7 +39,17 @@ class SignUpModal extends React.Component {
         //  http://localhost:3001/charities
         //  /charities
         //  https://radiant-plains-22268.herokuapp.com/api (i have JSON data stored here and i wanted to see the response)
-        axios.get('/charities')
+        // axios.get('/charities')
+        //     .then(function(response){
+        //         console.log(response.data)
+        //     })
+        //     .catch(function(error){
+        //         console.log(error)
+        //     })
+        axios.post('/donors',
+        {
+            login
+        })
             .then(function(response){
                 console.log(response.data)
             })

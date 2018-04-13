@@ -14,6 +14,7 @@ ReactDOM.render(
 		<div>
 			<Route exact path = '/' component={App} />
 			<Route path = '/charities' component={App} />
+			<Route path = '/donors' component={App} />
 		</div>
 	</Router>,
 	document.getElementById('root')

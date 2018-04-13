@@ -22,13 +22,13 @@ const DonorSchema = new Schema({
 				var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   				return re.test(email);
 			}, 
-			message: '{Value} is not a valid email. Enter an email in the format of email@email.com' 
+			message: '{Value} is not a valid email.' 
 		},
 	},
-	Name:{
-		type: String,
-		required: true
-	},
+	// Name:{
+	// 	type: String,
+	// 	required: true
+	// },
 	Donated:{
 		type: Array,
 		default: []
