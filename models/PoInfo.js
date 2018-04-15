@@ -3,14 +3,14 @@ const Schema = mongoose.Schema;
 
 const PoInfoSchema = new Schema({
   _id: Schema.Types.ObjectId,
-  charity: { 
-    type: Schema.Types.ObjectId, 
-    ref: "Charity" 
-  },
-  donors: { 
-    type: Schema.Types.ObjectId, 
-    ref: "Donor" 
-  },
+  // charity: { 
+  //   type: Schema.Types.ObjectId, 
+  //   ref: "Charity" 
+  // },
+  // donors: { 
+  //   type: Schema.Types.ObjectId, 
+  //   ref: "Donor" 
+  // },
   SupplierName: {
     type: String
   },
