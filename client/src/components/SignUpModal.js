@@ -6,7 +6,6 @@ import Dialog, {
 } from 'material-ui/Dialog';
 import axios from 'axios';
 
-
 class SignUpModal extends React.Component {
     state = {
         open: false,
@@ -33,29 +32,25 @@ class SignUpModal extends React.Component {
         }
         console.log(login);
         this.loginForm.reset();
-        
-        //URLS tried:
-        //  http://localhost:3000/charities
-        //  http://localhost:3001/charities
-        //  /charities
-        //  https://radiant-plains-22268.herokuapp.com/api (i have JSON data stored here and i wanted to see the response)
-        // axios.get('/charities')
-        //     .then(function(response){
-        //         console.log(response.data)
-        //     })
-        //     .catch(function(error){
-        //         console.log(error)
-        //     })
-        axios.post('/donors',
-        {
-            login
-        })
+
+        axios.get('/charities')
             .then(function(response){
                 console.log(response.data)
             })
             .catch(function(error){
                 console.log(error)
             })
+
+        // axios.post('/donors',
+        // {
+        //     login
+        // })
+        //     .then(function(response){
+        //         console.log(response.data)
+        //     })
+        //     .catch(function(error){
+        //         console.log(error)
+        //     })
     }
     
     render() {
