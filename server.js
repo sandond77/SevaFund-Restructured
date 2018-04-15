@@ -3,11 +3,11 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require('mongoose');
-const db = require('./models');
+const db = require('./server/models');
 const cors = require('cors');
 // const axios = require('axios')
 const bodyParser = require('body-parser');
-const router = require('./routes/router')
+const router = require('./server/routes/router')
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
