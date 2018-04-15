@@ -6,6 +6,7 @@ import Dialog, {
 } from 'material-ui/Dialog';
 import Select from 'material-ui/Select';
 import MenuItem from 'material-ui';
+import axios from 'axios';
 
 class CharityModal extends React.Component {
     state = {
@@ -44,6 +45,14 @@ class CharityModal extends React.Component {
         }
         console.log(login);
         this.loginForm.reset();
+
+        axios.get('/charities')
+        .then(function(response){
+            console.log(response.data)
+        })
+        .catch(function(error){
+            console.log(error)
+        })
     }
 
     //to pass the SignUp data
@@ -57,6 +66,14 @@ class CharityModal extends React.Component {
         }
         console.log(signUp);
         this.signUpForm.reset();
+
+        axios.get('/charities')
+        .then(function(response){
+            console.log(response.data)
+        })
+        .catch(function(error){
+            console.log(error)
+        })
     }
     
     render() {
