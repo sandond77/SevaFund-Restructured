@@ -25,18 +25,18 @@ console.log("mongoose status code representations: 0 = disconnected/1 = connecte
 console.log("mongoose connection status: Current status is: ", mongoose.connection.readyState);
 
 
-db.Charity.create({
-	Name: "Test Charity"
-	})
-	.then(results => {
-		console.log("creating db entry")
-	})
+// db.Charity.create({
+// 	Name: "Test Charity"
+// 	})
+// 	.then(results => {
+// 		console.log("creating db entry")
+// 	})
 
-db.Charity.find({})
-	.then(results => {
-		console.log("logging db search results")
-		console.log(results)
-	})
+// db.Charity.find({})
+// 	.then(results => {
+// 		console.log("logging db search results")
+// 		console.log(results)
+// 	})
 
 app.use(router)
 
