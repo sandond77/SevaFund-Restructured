@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models');
 
-app.get('/charities', (req, res) => {
+
+router.get('/charities', (req, res) => {
 	// res.send("get request received")
 	db.Charity.find({})
 		.then(results => {
@@ -11,7 +12,7 @@ app.get('/charities', (req, res) => {
 		})	
 	});
 	
-app.get("/api/projects", (req, res) => {			
+router.get("/api/projects", (req, res) => {			
 		db.Project
 		.find({})
 		.then(dbModel => res.json(dbModel))
@@ -19,7 +20,7 @@ app.get("/api/projects", (req, res) => {
 		})
 		  
 		 
-app.post("/api/projects", (req, res) => {
+router.post("/api/projects", (req, res) => {
 	db.Project
 	.create(req.body)
 	.then(dbModel => res.json(dbModel))
@@ -27,21 +28,21 @@ app.post("/api/projects", (req, res) => {
 });
 
 	//// Matches with "/api/projects/:id"
-app.get("/api/projects/:id", (req, res) => {
+router.get("/api/projects/:id", (req, res) => {
 	db.Project
 	.findById(req.params.id)
 	.then(dbModel => res.json(dbModel))
 	.catch(err => res.status(422).json(err));
 })
 	
-app.put("/api/projects/:id", (req, res) => {
+router.put("/api/projects/:id", (req, res) => {
 	db.Project
 	.findOneAndUpdate({ _id: req.params.id }, req.body)
 	.then(dbModel => res.json(dbModel))
 	.catch(err => res.status(422).json(err));
 })
 
-app.post('/donor/register', (req, res) => {
+router.post('/donor/register', (req, res) => {
 		let Email = req.body.email;
 		let Password = req.body.password;
 		let passwordConfirm = req.confirmPassword;
@@ -69,12 +70,11 @@ app.post('/donor/register', (req, res) => {
 				console.log('Donor created in db with its hash', donor);
 			});
 
-			req.flash('success_msg', 'You are registered and can now login');
 			res.redirect('/donors/login');
 		// }
 });
 
-app.post('/charity/register', (req, res) => {
+router.post('/charity/register', (req, res) => {
 		const charityName =  req.body.name
 		const email =  req.body.email
 		const password = req.body.password
@@ -85,6 +85,7 @@ app.post('/charity/register', (req, res) => {
 		const phoneNumber =  req.body.phoneNumber
 	//confirmPassword: confirmPassword for validation 
 		console.log(req.body)
+		
 		let newCharity = new Charity ({
 			CharityName: charityName,
 			Email: email,
@@ -102,10 +103,9 @@ app.post('/charity/register', (req, res) => {
 			if(err) throw err;
 			console.log('charity created in db', Charity);
 		});
-		req.flash('success_msg', 'You are registered and can now login');
+
 		res.redirect('/charity/login');		
 });
 
 module.exports = router;
 
-//https://appdividend.com/2017/06/28/mern-stack-tutorial/
