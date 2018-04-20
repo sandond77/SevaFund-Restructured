@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 import RandForm from "./RandForm";
-import CharityList from "./CharityList";
+import CharList from "./CharityList.js";
 import About from "./About";
 import Home from "./Home";
 
