@@ -64,10 +64,11 @@ class CharList extends Component {
     ));
 
     return (
-      // <div className="container">
-        // <div className="charity-cards">{projects}</div>
-      // </div>
-      <h1> check the console</h1>
+      <div className="container">
+        <h1> check the console</h1>
+        <div className="charity-cards">{projects}</div>
+      </div>
+      // <h1> check the console</h1>
     );
   }
 }
