@@ -61,17 +61,20 @@ class CharList extends Component {
       // const charities = this.props.charities.map((c, index) => (
       //   <Card key={index} {...c} />
       // ));
+    if(this.state.projects){
+        const charities = this.state.projects.map((p, index) => (
+          <Card key={index} {...p} />
+        ));
 
-    const charities = this.state.projects.map((p, index) => (
-      <Card key={index} {...p} />
-    ));
-
-    return (
-      <div className="container">
-        <div className="charity-cards">{charities}</div>
-      </div>
-      // <h1> check the console</h1>
-    );
+        return (
+          <div className="container">
+            <div className="charity-cards">{charities}</div>
+          </div>
+          // <h1> check the console</h1>
+        );
+    }else{
+          return <p>Loading content ...</p>
+    }
   }
 }
 
