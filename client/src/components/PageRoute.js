@@ -8,7 +8,7 @@ import Home from "./Home";
 const NewHo = () => <Home />;
 const NewPo = () => <RandForm />;
 const AboutUs = () => <About />;
-const OpenPo = () => <CharityList />;
+const OpenPo = () => <CharList />;
 
 const PageRoute = () => (
   <Switch>
