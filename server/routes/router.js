@@ -9,14 +9,14 @@ router.get('/charities', (req, res) => {
 	db.Charity.find({})
 		.then(results => {
 			// console.log(" get response sent")
-			res.json(results);
+			res.send(results);
 		})	
 	});
 	
 router.get("/api/projects", (req, res) => {			
 		db.Project
 		.find({})
-		.then(dbModel => res.json(dbModel))
+		.then(dbModel => res.send(dbModel))
 		.catch(err => res.status(422).json(err));
 		})
 		  
@@ -24,7 +24,7 @@ router.get("/api/projects", (req, res) => {
 router.post("/api/projects", (req, res) => {
 	db.Project
 	.create(req.body)
-	.then(dbModel => res.json(dbModel))
+	.then(dbModel => res.send(dbModel))
 	.catch(err => res.status(422).json(err));
 });
 
@@ -32,14 +32,14 @@ router.post("/api/projects", (req, res) => {
 router.get("/api/projects/:id", (req, res) => {
 	db.Project
 	.findById(req.params.id)
-	.then(dbModel => res.json(dbModel))
+	.then(dbModel => res.send(dbModel))
 	.catch(err => res.status(422).json(err));
 })
 	
 router.put("/api/projects/:id", (req, res) => {
 	db.Project
 	.findOneAndUpdate({ _id: req.params.id }, req.body)
-	.then(dbModel => res.json(dbModel))
+	.then(dbModel => res.send(dbModel))
 	.catch(err => res.status(422).json(err));
 })
 
