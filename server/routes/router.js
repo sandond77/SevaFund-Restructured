@@ -13,7 +13,7 @@ router.get('/charities', (req, res) => {
 		})	
 	});
 	
-router.get("/api/projects", (req, res) => {			
+router.get("/projects", (req, res) => {			
 		db.Project
 		.find({})
 		.then(dbModel => res.send(dbModel))
@@ -21,7 +21,7 @@ router.get("/api/projects", (req, res) => {
 		})
 		  
 		 
-router.post("/api/projects", (req, res) => {
+router.post("/projects", (req, res) => {
 	db.Project
 	.create(req.body)
 	.then(dbModel => res.send(dbModel))
@@ -29,14 +29,14 @@ router.post("/api/projects", (req, res) => {
 });
 
 	//// Matches with "/api/projects/:id"
-router.get("/api/projects/:id", (req, res) => {
+router.get("/projects/:id", (req, res) => {
 	db.Project
 	.findById(req.params.id)
 	.then(dbModel => res.send(dbModel))
 	.catch(err => res.status(422).json(err));
 })
 	
-router.put("/api/projects/:id", (req, res) => {
+router.put("/projects/:id", (req, res) => {
 	db.Project
 	.findOneAndUpdate({ _id: req.params.id }, req.body)
 	.then(dbModel => res.send(dbModel))
