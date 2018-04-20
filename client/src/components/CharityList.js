@@ -45,7 +45,7 @@ class CharList extends Component {
   loadProjects = () => {
     API.getProjects()
       .then(res => {
-           // this.setState({ projects: res.data})
+           this.setState({ projects: res.data})
            console.log(res.data)
            console.log("logging the state")
            console.log(this.state.projects)       
@@ -59,17 +59,13 @@ class CharList extends Component {
   // }
 
   render() {
-      // const charities = this.props.charities.map((c, index) => (
-      //   <Card key={index} {...c} />
-      // ));
-
-    const charities = this.state.projects.map((p, index) => (
+    const projects = this.state.projects.map((p, index) => (
       <Card key={index} {...p} />
     ));
 
     return (
       // <div className="container">
-        // <div className="charity-cards">{charities}</div>
+        // <div className="charity-cards">{projects}</div>
       // </div>
       <h1> check the console</h1>
     );
