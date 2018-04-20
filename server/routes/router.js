@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
-
+import '../models/Charity';
+import '../models/Donor';
 
 router.get('/charities', (req, res) => {
 	// res.send("get request received")
