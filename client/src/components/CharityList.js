@@ -45,7 +45,8 @@ class CharList extends Component {
   loadProjects = () => {
     API.getProjects()
       .then(res => {
-           this.setState({ projects: res.data})
+           // this.setState({ projects: res.data})
+           console.log(res.data)
            console.log("logging the state")
            console.log(this.state.projects)       
         })
@@ -67,10 +68,10 @@ class CharList extends Component {
     ));
 
     return (
-      <div className="container">
-        <div className="charity-cards">{charities}</div>
-      </div>
-      // <h1> check the console</h1>
+      // <div className="container">
+        // <div className="charity-cards">{charities}</div>
+      // </div>
+      <h1> check the console</h1>
     );
   }
 }
