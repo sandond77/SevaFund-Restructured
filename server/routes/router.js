@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
-import '../models/Charity';
-import '../models/Donor';
+const { Donor } = require('../models');
+const { Charity } = require('../models');
 
 router.get('/charities', (req, res) => {
 	// res.send("get request received")
