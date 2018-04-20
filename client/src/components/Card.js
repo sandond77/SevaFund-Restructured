@@ -19,10 +19,8 @@ class Card extends Component {
     this.setState({ donation: value });
   };
 
-  //Needs handleSubmit() method
   handleSubmit = event => {
     event.preventDefault();
-
     this.setState({
       donation: 0,
       funded:
@@ -31,66 +29,67 @@ class Card extends Component {
   };
 
   render() {
-    const { title, img, content, website, amount } = this.props;
+    const { title, image, project, website, Amount } = this.props;
     const { donation, funded } = this.state;
-    // const percentage = int()
 
     return (
-      <div className="card">
-        <div className="card-image waves-effect waves-block waves-light">
-          <img className="activator" src={img} alt={title} />
-        </div>
-        <div className="card-content">
-          <span className="card-title activator grey-text text-darken-4">
-            {title}
-            <i className="material-icons right">more_vert</i>
-          </span>
-          <div className="container">
-            <div className="row">
-              <form onSubmit={this.handleSubmit}>
-                <div className="col s6">
-                  <label htmlFor="donate">Enter Amount</label>
-                  <input
-                    id="donate"
-                    placeholder="$"
-                    type="number"
-                    className="input-field"
-                    name="amount"
-                    value={donation}
-                    onChange={this.handleChange}
-                  />
-                </div>
-                <div className="col s4">
-                  <Checkout
-                    className="waves-effect waves-light btn light-blue accent-2"
-                    name={"The Road to learn React"}
-                    description={"Only the Book"}
-                    amount={donation * 100}
-                  />
-                </div>
-              </form>
+      <div className="container">
+        <div className="card">
+          <div className="card-image waves-effect waves-block waves-light">
+            <img className="activator" src={image} alt={title} />
+          </div>
+          <div className="card-content">
+            <span className="card-title activator grey-text text-darken-4">
+              {title}
+              <i className="material-icons right">more_vert</i>
+            </span>
+            <div className="container">
+              <div className="row">
+                <form onSubmit={this.handleSubmit}>
+                  <div className="col s6">
+                    <label htmlFor="donate">Enter Amount</label>
+                    <input
+                      id="donate"
+                      placeholder="$"
+                      type="number"
+                      className="input-field"
+                      name="amount"
+                      value={donation}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                  <div className="col s4">
+                    <Checkout
+                      className="waves-effect waves-light btn light-blue accent-2"
+                      name={"The Road to learn React"}
+                      description={"Only the Book"}
+                      amount={donation * 100}
+                    />
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="card-reveal">
-          <span className="card-title grey-text text-darken-4">
-            {title}
-            <i className="material-icons right">close</i>
-          </span>
-          <p>{content}</p>
-          <p>
-            Target Funding:{" "}
-            <NumberFormat
-              value={amount}
-              displayType="text"
-              thousandSeparator={true}
-              prefix={"$"}
-            />{" "}
-            -- Funded: {parseInt(funded, 10) / parseInt(amount, 10) * 100}%
-          </p>
-          <a href={website} target="_blank">
-            <p>Please Visit Us!</p>
-          </a>
+          <div className="card-reveal">
+            <span className="card-title grey-text text-darken-4">
+              {title}
+              <i className="material-icons right">close</i>
+            </span>
+            <p>{project}</p>
+            <p>
+              Target Funding:{" "}
+              <NumberFormat
+                value={Amount}
+                displayType="text"
+                thousandSeparator={true}
+                prefix={"$"}
+              />{" "}
+              -- Funded: {parseInt(funded, 10) / parseInt(Amount, 10) * 100}%
+            </p>
+            <a href={website} target="_blank">
+              <p>Please Visit Us!</p>
+            </a>
+          </div>
         </div>
       </div>
     );

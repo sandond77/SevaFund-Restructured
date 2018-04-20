@@ -14,9 +14,9 @@ const PageRoute = () => (
   <Switch>
     <Route exact path="/" component={NewHo} />
     <Route path="/newPo" component={NewPo} />
-    <Route path="/openPo" component={OpenPo} />
+    <Route path="/api/projects" component={OpenPo} />
     <Route path="/about" component={AboutUs} />
-  </Switch>
+  </Switch> 
 );
 
 export default PageRoute;

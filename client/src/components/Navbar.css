@@ -1,9 +1,39 @@
+a.nav-words,
+a.brand-logo {
+    color: #9E9B8D;
+    font-family: "Lato, sans-serif";
+}
+
+a.nav-words {
+  font-size: 1.2rem;
+}
+
+#navRow.row, .sidenav {
+  background-color: white;
+  top: 0;
+  width: 100%;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  position: fixed;
+  z-index: 1;
+}
+
+div.card-image.waves-effect.waves-block.waves-light, div.card {
+  z-index: 0;
+}
+
 .modal-content {
   color: black;
 }
-
 .brand-logo {
   margin-left: 5%;
+}
+
+ul.social-med {
+  z-index: 1;
+}
+
+ul.right.hide-on-med-and-down {
+  color: black;
 }
 
 button.MuiButtonBase-root-16.MuiButton-root-1 {
