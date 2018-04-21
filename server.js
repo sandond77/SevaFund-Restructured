@@ -8,7 +8,9 @@ const cors = require('cors');
 // const axios = require('axios')
 const bodyParser = require('body-parser');
 const router = require('./server/routes/router')
-
+const session = require('express-session');
+const expressValidator = require('express-validator');
+const cookieParser = require('cookie-parser');
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -18,6 +20,14 @@ if (process.env.NODE_ENV === "production") {
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 app.use(cors());
+
+app.use(session({
+  secret: 'secret',
+  saveUninitialized: true,
+  resave: true
+}));
+
+app.use(cookieParser());
 
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/SevaFund";
 mongoose.Promise = Promise;
@@ -60,7 +70,19 @@ db.Project.create({
   .then(results => {
     console.log("Data saved in db!!!")
   })  
-  
+
+db.Project.create({
+      title: "OneApp",
+      image: "https://i.gyazo.com/aa975aff043989f8416b26566d2d370c.jpg",
+      project:
+        "OneApp is a modernized social network that helps users create a profile that serves as their college applications. The application is a gateway between schools and students to find the best match university.",
+      website: "https://cryptic-atoll-45563.herokuapp.com/",
+      Amount: 10000
+    })
+.then(results => {
+  console.log("Data saved in db!!!")
+})
+
 app.use(router)
 
 // Send every request to the React app

@@ -1,3 +1,4 @@
+
 const mongoose = require("mongoose");
 const bcrypt = require('bcryptjs');
 const Schema = mongoose.Schema;
@@ -7,6 +8,10 @@ const DonorSchema = new Schema({
   },
   Email: {
     type: String,
+  },
+  Type: {
+    type: String,
+    default: 'Donor',
   },
   PurchaseOrders: {
     type: Array,
@@ -24,13 +29,12 @@ module.exports = Donor;
 
 module.exports.createDonor = function(newDonor, callback){
   console.log('donorModel', newDonor);
-  bcrypt.genSalt(10, function(err, salt) {
-    bcrypt.hash(newDonor.Password, salt, function(err, hash) {
+  
+    bcrypt.hash(newDonor.Password, 10, function(err, hash) {
         newDonor.Password = hash;
-        console.log('hash', hash);
         newDonor.save(callback);
     });
-});
+
 }
 
 module.exports.comparePassword = function(candidatePassword, hash, callback){
@@ -40,8 +44,8 @@ module.exports.comparePassword = function(candidatePassword, hash, callback){
   });
 }
 
-module.exports.getDonorByUsername = function(username, callback){
-  var query = {username: username};
+module.exports.getDonorByEmail = function(Email, callback){
+  var query = {Email: Email};
   Donor.findOne(query, callback);
 }
 
