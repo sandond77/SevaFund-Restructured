@@ -52,7 +52,7 @@ class DonorModal extends React.Component {
         } else if (res.data.isLoggedIn === "success") {
           window.location.href = "/projects";
         } else if (res.data.isLoggedIn === "fail") {
-          alert("You have entered an invalid email or the wrong password");
+          alert(res.data.message);;
         }
       })
       .catch(err => console.log(err));
