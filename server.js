@@ -83,6 +83,18 @@ db.Project.create({
   console.log("Data saved in db!!!")
 })
 
+db.Project.create({
+      title: "Semilla de Bienestar",
+      image: "https://pbs.twimg.com/profile_images/721467019586072576/9El8LAoC_400x400.jpg",
+      project:
+        "Semilla de Bienestar is a non-profit corporation considered in the category 501 (c) (3) whose commitment is to contribute to the development of healthy communities through information, education, training, awareness, orientation, empowerment, awareness and take of action before the complex situations and multiple challenges that cross the diverse communities in Puerto Rico and its wide diaspora. Our proposal reiterates a firm commitment to collaboration and mutual cooperation in projects, initiatives, laws and programs that seek the common good, justice and better living conditions for the diverse Latino and Hispanic community in the United State.",
+      Amount: 10000
+    })
+.then(results => {
+  console.log("Data saved in db!!!")
+})
+
+
 app.use(router)
 
 // Send every request to the React app
